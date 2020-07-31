@@ -1,0 +1,83 @@
+package com.flys.dico.fragments.behavior;
+
+import android.webkit.WebView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.text.HtmlCompat;
+
+import com.flys.dico.R;
+import com.flys.dico.architecture.core.AbstractFragment;
+import com.flys.dico.architecture.custom.CoreState;
+
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.OptionsMenu;
+import org.androidannotations.annotations.ViewById;
+
+
+@EFragment(R.layout.fragment_home_layout)
+@OptionsMenu(R.menu.menu_home)
+public class HomeFragment extends AbstractFragment {
+
+    @ViewById(R.id.webview)
+    protected WebView webview;
+
+   // @ViewById(R.id.home_msg)
+   // protected TextView message;
+
+    /*@Click(R.id.next)
+    protected void nextChapitre() {
+        mainActivity.navigateToView(mainActivity.DOG_FRAGMENT, ISession.Action.SUBMIT);
+    }
+
+    @Click(R.id.previous)
+    protected void previousChapitre() {
+
+    }*/
+
+    @Override
+    public CoreState saveFragment() {
+        return new CoreState();
+    }
+
+    @Override
+    protected int getNumView() {
+        return mainActivity.HOME_FRAGMENT;
+    }
+
+    @Override
+    protected void initFragment(CoreState previousState) {
+        ((AppCompatActivity) mainActivity).getSupportActionBar().show();
+    }
+
+    @Override
+    protected void initView(CoreState previousState) {
+        //message.setText(HtmlCompat.fromHtml(getString(R.string.home_msg),HtmlCompat.FROM_HTML_MODE_LEGACY));
+
+    }
+
+    @Override
+    protected void updateOnSubmit(CoreState previousState) {
+
+    }
+
+    @Override
+    protected void updateOnRestore(CoreState previousState) {
+
+    }
+
+    @Override
+    protected void notifyEndOfUpdates() {
+
+    }
+
+    @Override
+    protected void notifyEndOfTasks(boolean runningTasksHaveBeenCanceled) {
+
+    }
+
+    @Override
+    protected boolean hideNavigationBottomView() {
+        return false;
+    }
+}
